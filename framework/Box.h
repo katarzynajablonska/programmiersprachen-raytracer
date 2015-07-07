@@ -11,6 +11,8 @@
 
 #include "Shape.h"
 #include "color.hpp"
+#include "Material.h"
+#include "Ray.h"
 #include <glm/vec3.hpp>
 
 class Box : public Shape
@@ -19,7 +21,7 @@ class Box : public Shape
     
 public:
     Box();
-    Box(glm::vec3 const& min, glm::vec3 const& max, Color const& c);
+    Box(glm::vec3 const& min, glm::vec3 const& max, Material const& m);
     glm::vec3 const& get_min() const;
     glm::vec3 const& get_max() const;
     float area() const override;
@@ -37,7 +39,7 @@ public:
     
 //  Aufgabe 7.3
     
-    //bool intersect(Ray const& ray, float& t) const override;
+    bool intersect(Ray const& ray, float& t) const override;
 };
 
 #endif /* defined(BOX_H) */
